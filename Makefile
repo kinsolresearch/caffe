@@ -178,7 +178,9 @@ ifneq ($(CPU_ONLY), 1)
 	LIBRARIES := cudart cublas curand
 endif
 
-LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_hl hdf5
+INCLUDE_DIRS := $(INCLUDE_DIRS) /usr/include/hdf5/serial/
+LIBRARY_DIRS := $(LIBRARY_DIRS) /usr/lib/x86_64-linux-gnu/
+LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_serial_hl hdf5_serial
 
 # handle IO dependencies
 USE_LEVELDB ?= 1
